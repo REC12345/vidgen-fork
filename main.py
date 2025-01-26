@@ -8,7 +8,6 @@ import os
 from tqdm import tqdm
 from tqdm.contrib.logging import logging_redirect_tqdm
 
-from utils.youtube_uploader import YouTubeUploader
 from src.content_getter import ContentGetter
 from config.dicts import SUBREDDITS
 from config.structure import VIDEO_DIR
