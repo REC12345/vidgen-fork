@@ -2,21 +2,21 @@
 
 This is a tool to algorithmically generate those videos you see all over TikTok, where some AI voice is reading out popular reddit posts while the background is some dopamine-rush mobile game footage.
 
-### How does this work?
+### How It Works
 
-1. We get viral reddit posts from the Internet.
+1. Scrape popular online forums(Reddit, Qoura, etc...) for viral posts and save them to a JSON file.
 
-2. We put them through some text-to-speech program to make the computer say it so we have to think less.
+2. Send each post through a text to speech program to produce an audio file.
 
-3. We put that audio through a transcriber so we can put nice subtitles on the screen, our brain likes stimulation.
+3. Generate subtitles by transcribing each audio file.
    
-   (we need to re-transcribe the audio even though we have the source text because we don't know how fast the TTS is saying it, but we need to know when to put the subtitles on the screen)
+   (we need to re-transcribe the audio because we don't know how fast the text to speech is talking.)
 
-4. We get some free-to-use satisfying game footage off YouTube and put everything together.
+4. Get free-to-use satisfying game footage off YouTube.
 
-5. ???
+5. Combine the audio, subtitles, and game footage into the final video.
 
-6. Profit!
+6. Profit and realize we are all going to hell for this but I'm gonna keep doing it anyways.
 
 
 ### Usage
@@ -96,4 +96,3 @@ It takes the following options from the command line:
 ### Planned features
 
 + Automatically uploading generated videos to platforms such as YouTube (shorts), TikTok or Instagram (reels)
-+ More platforms for content apart from reddit (4chan greentexts? idk)
