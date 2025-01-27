@@ -2,7 +2,11 @@
 # date: 12.06.2023
 # topic: TikTok-Voice-TTS
 # version: 1.0
-# credits: https://github.com/oscie57/tiktok-voice
+# credits: https://github.com/oscie57/tiktok-voice 
+'''        ^^^ This repo should NOT be used because 
+            this program severely violates its 
+            terms of service. Migrate when possible!
+'''
 
 import threading, requests, base64
 # from playsound import playsound
@@ -111,31 +115,26 @@ def tts(text: str, voice: str = "none", filename: str = "output.mp3", play_sound
     global current_endpoint
 
     if get_api_response().status_code == 200:
-        #print("Service available!")
-        pass
+        print("Service available!")
     else:
         current_endpoint = (current_endpoint + 1) % 2
         if get_api_response().status_code == 200:
-            # print("Service available!")
-            pass
+            print("Service available!")
         else:
-            #print(f"Service not available and probably temporarily rate limited, try again later...")
+            print(f"Service not available and probably temporarily rate limited, try again later...")
             return
     
     # checking if arguments are valid
     if voice == "none":
-        #print("No voice has been selected")
-        pass
+        print("No voice has been selected")
         return
     
     if not voice in VOICES:
-        #print("Voice does not exist")
-        pass
+        print("Voice does not exist")
         return
 
     if len(text) == 0:
-        #print("Insert a valid text")
-        pass
+        print("Insert a valid text")
         return
 
     # creating the audio file
@@ -148,8 +147,7 @@ def tts(text: str, voice: str = "none", filename: str = "output.mp3", play_sound
                 audio_base64_data = str(audio).split('"')[3].split(",")[1]
             
             if audio_base64_data == "error":
-                #print("This voice is unavailable right now")
-                pass
+                print("This voice is unavailable right now")
                 return
                 
         else:
@@ -166,8 +164,7 @@ def tts(text: str, voice: str = "none", filename: str = "output.mp3", play_sound
                     base64_data = str(audio).split('"')[3].split(",")[1]
 
                 if audio_base64_data == "error":
-                    #print("This voice is unavailable right now")
-                    pass
+                    print("This voice is unavailable right now")
                     return "error"
             
                 audio_base64_data[index] = base64_data
@@ -187,9 +184,9 @@ def tts(text: str, voice: str = "none", filename: str = "output.mp3", play_sound
             audio_base64_data = "".join(audio_base64_data)
             
         save_audio_file(audio_base64_data, filename)
-        #print(f"Audio file saved successfully as '{filename}'")
-        pass
+        print(f"Audio file saved successfully as '{filename}'")
 
     except Exception as e:
-        #print("Error occurred while generating audio:", str(e))
-        pass
+        print("Error occurred while generating audio:", str(e))
+
+
