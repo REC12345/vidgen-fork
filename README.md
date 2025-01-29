@@ -16,7 +16,6 @@ This is a tool to algorithmically generate those videos you see all over TikTok,
 
 5. Combine the audio, subtitles, and game footage into the final video.
 
-6. Profit and realize we are all going to hell for this but I'm gonna keep doing it anyways.
 
 
 ### Usage
