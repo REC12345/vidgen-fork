@@ -1,6 +1,6 @@
 # vidgen (video generator) ❤️‍🩹
 
-This is a tool to algorithmically generate those videos you see all over TikTok, where some AI voice is reading out popular reddit posts while the background is some dopamine-rush mobile game footage.
+Algorithmically generate those videos you see all over TikTok, where some AI voice is reading out popular reddit posts while the background is some dopamine-rush mobile game footage.  This program has the goal of educating the user on how this type of content is made and just how easy it is to produce it.
 
 ### How It Works
 
@@ -24,50 +24,66 @@ This is a tool to algorithmically generate those videos you see all over TikTok,
 
 The program kind of expects the following directory structure under `data/`.
 
-This means you're gonna want to provide a font.ttf and gonna need to provide background footage (for your convenience, by default, a libre font is provided.)
+This means you're gonna want to provide a font.ttf and gonna need to provide background footage.
 
-`audio/` is used for the text-to-speech output files
+There are two sections, input and output.  Input includes the desired font, online post and background footage while output includes the final video, final audio and, subtitles.
 
-`db/` is populated with an sqlite3 database to store reddit posts
+`input` contains
++ `ttf/` stores the desired font(A default font is provided for convinence).
++ `posts/` stores reddit posts.
++ `background/` stores background footage.
 
-`subtitles/` is used for .srt files to store the generated subtitles
-
-`ttf/` contains the font to be used
-
-`video` contains
-+ `bg/` which contains individual folders whichthen contain your background footage
-+ `done/` which is populated with the generated videos
+`output/` contains
++ `subtitles/` stores the generated subtitles.
++ `audio/` stores text-to-speech output files.
++ `video/` stores the final video.
 
 `config` contains
 + `dicts.py`, which are some dictionaries used to sanitize the reddit posts and, importantly, the list of subreddits used (currently: `r/tifu`, `r/amitheasshole`, `r/relationship_advice` and `r/confession`) and the method to query them (currently: `rss` or `web` -- as in RSS or web-scraping)
 + `structure.py`, which defines some directories and the font path, name and size.
 
+Remember, garbage in is garbage out...
 
 `tree` output:
 
 ```
 vidgen
 │
-├── config
-│   ├── dicts.py
-│   └── structure.py
-│
-├── audio
-│   └── (filled by vidgen)
-├── db
-│   └── (filled by vidgen)
-├── subtitles
-│   └── (filled by vidgen)
-├── ttf
-│   └── subtitle_font.ttf
-└── video
-    ├── bg
-    │   ├── gta_gameplay
-    │   │   └── gta_footage.mp4
-    │   └── some_other_background_footage
-    │       └── some_other_footage.mp4
-    └── done
-        └── (filled by vidgen)
+├── trashcan
+│   ├── garbageIn_MM_DD_YYYY
+│   │   ├── font.ttf
+│   │   ├── post.json
+│   │   └── background.mp4
+│   │
+│   ├── garbageIn_MM_DD_YYYY
+│   │   ├── font.ttf
+│   │   ├── post.json
+│   │   └── background.mp4
+│   │
+│   └── garbageIn_MM_DD_YYYY
+│       ├── font.ttf
+│       ├── post.json
+│       └── background.mp4
+│  
+├── dumpster
+│   ├── garbageOut_MM_DD_YYYY
+│   │   ├── subtitles.srt
+│   │   ├── audio.mp3
+│   │   └── video.mp4
+│   │
+│   ├── garbageOut_MM_DD_YYYY
+│   │   ├── subtitles.srt
+│   │   ├── audio.mp3
+│   │   └── video.mp4
+│   │
+│   └── garbageOut_MM_DD_YYYY
+│       ├── subtitles.srt
+│       ├── audio.mp3
+│       └── video.mp4
+│  
+└── config
+    ├── dicts.py
+    └── structure.py
 ```
 
 #### main.py
@@ -91,7 +107,3 @@ It takes the following options from the command line:
 + `--no-youtube-upload`: Do not upload to YouTube (currently irrelevant)
 + `--quick`: Work on a limited number of posts only
 + `--quick-limit`: Set the limit used in `--quick`, default: 1
-
-### Planned features
-
-+ Automatically uploading generated videos to platforms such as YouTube (shorts), TikTok or Instagram (reels)
