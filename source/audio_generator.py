@@ -8,12 +8,12 @@ from tqdm import tqdm
 from tqdm.contrib.logging import logging_redirect_tqdm
 import tempfile
 
-from utils.tiktok_tts import tts as tiktok_tts
-from utils.logger import setup_logger
-from models.post import Post
+from utilities.tiktok_tts import tts as tiktok_tts
+from utilities.logger import setup_logger
+from templates.post import Post
 from config.structure import AUDIO_DIR
 from config.dicts import TIKTOK_VOICES
-from utils.text import split_text_into_chunks, shorten_hash, shorten_string
+from utilities.text import split_text_into_chunks, shorten_hash, shorten_string
 
 class AudioGenerator:
     def __init__(self, loglevel = logging.INFO):

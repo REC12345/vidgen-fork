@@ -4,8 +4,8 @@ import logging
 import os
 
 from config import structure
-from utils.logger import setup_logger
-from models.post import Post
+from utilities.logger import setup_logger
+from templates.post import Post
 
 class DB:
     def __init__(self, loglevel = logging.INFO):

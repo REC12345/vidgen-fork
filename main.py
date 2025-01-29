@@ -2,21 +2,18 @@ import logging
 import time
 import argparse
 import concurrent.futures
-import json
-import os
 
-from tqdm import tqdm
-from tqdm.contrib.logging import logging_redirect_tqdm
 
-from src.content_getter import ContentGetter
 from config.dicts import SUBREDDITS
-from config.structure import VIDEO_DIR
-from src.db import DB
+from source.audio_generator import AudioGenerator
+from source.composer import Composer
+from source.content_getter import ContentGetter
+from source.db import DB
+from source.subtitler import Subtitler
+from tqdm.contrib.logging import logging_redirect_tqdm
+from tqdm import tqdm
 from utils.logger import setup_logger
-from src.audio_generator import AudioGenerator
-from src.subtitler import Subtitler
-from src.composer import Composer
-from utils.text import shorten_string
+
 
 def update_db(logger, db: DB):
     """

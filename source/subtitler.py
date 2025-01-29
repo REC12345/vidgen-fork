@@ -1,9 +1,9 @@
 import whisper
 import logging
 
-from utils.logger import setup_logger
+from utilities.logger import setup_logger
 from config.structure import AUDIO_DIR, SUBTITLE_DIR
-from utils.text import shorten_hash
+from utilities.text import shorten_hash
 
 class Subtitler:
     def __init__(self, loglevel = logging.INFO):

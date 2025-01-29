@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 from tqdm import tqdm
 
 from config.dicts import SUBREDDITS
-from utils.logger import setup_logger
-from models.post import Post
+from utilities.logger import setup_logger
+from templates.post import Post
 
 class ContentGetter:
     def __init__(self, loglevel = logging.INFO):

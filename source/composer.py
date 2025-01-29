@@ -3,9 +3,9 @@ import subprocess
 import random
 import os
 
-from utils.logger import setup_logger
+from utilities.logger import setup_logger
 from config.structure import AUDIO_DIR, SUBTITLE_DIR, VIDEO_DIR, BACKGROUNDS_DIR, FONT
-from utils.text import shorten_hash
+from utilities.text import shorten_hash
 
 def get_duration(file):
     cmd = ['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', file]
