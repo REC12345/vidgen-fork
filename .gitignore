@@ -12,13 +12,3 @@ __pycache__/
 dist
 .venv/
 venv/
-data/auth/
-data/db/db.sqlite3
-data/video/
-!data/video/done/example_output.mp4
-data/ttf/*
-!data/ttf/LiberationSans-Regular.ttf
-data/tmp/*
-data/subtitles/*
-data/audio/*
-utils/youtube_uploader.py
