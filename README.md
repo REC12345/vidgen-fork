@@ -28,62 +28,60 @@ This means you're gonna want to provide a font.ttf and gonna need to provide bac
 
 There are two sections, input and output.  Input includes the desired font, online post and background footage while output includes the final video, final audio and, subtitles.
 
-`input` contains
-+ `ttf/` stores the desired font(A default font is provided for convinence).
-+ `posts/` stores reddit posts.
-+ `background/` stores background footage.
-
-`output/` contains
-+ `subtitles/` stores the generated subtitles.
-+ `audio/` stores text-to-speech output files.
-+ `video/` stores the final video.
-
 `config` contains
 + `dicts.py`, which are some dictionaries used to sanitize the reddit posts and, importantly, the list of subreddits used (currently: `r/tifu`, `r/amitheasshole`, `r/relationship_advice` and `r/confession`) and the method to query them (currently: `rss` or `web` -- as in RSS or web-scraping)
 + `structure.py`, which defines some directories and the font path, name and size.
 
-Remember, garbage in is garbage out...
 
 `tree` output:
 
 ```
 vidgen
 │
-├── trashcan
-│   ├── garbageIn_MM_DD_YYYY
-│   │   ├── font.ttf
-│   │   ├── post.json
-│   │   └── background.mp4
-│   │
-│   ├── garbageIn_MM_DD_YYYY
-│   │   ├── font.ttf
-│   │   ├── post.json
-│   │   └── background.mp4
-│   │
-│   └── garbageIn_MM_DD_YYYY
-│       ├── font.ttf
-│       ├── post.json
-│       └── background.mp4
+├── config
+│   ├── dicts.py
+│   └── structure.py
+│
+├── data
+│   ├── dataIn
+│   │    └── dataIn_MM_DD_YYYY
+│   │         ├── font.ttf
+│   │         ├── post.json
+│   │         └── background.mp4
+│   │
+│   └── dataOut
+│        └── dataOut_MM_DD_YYYY
+│             ├── subtitles.srt
+│             ├── audio.mp3
+│             └── video.mp4
+│
+├── source
+│   ├── scripts
+│   │   ├── x
+│   │   ├── y
+│   │   └── z     
+│   ├── x
+│   ├── y
+│   └── z
+|
+├── tests
+│   ├── x
+│   ├── y
+│   └── z
 │  
-├── dumpster
-│   ├── garbageOut_MM_DD_YYYY
-│   │   ├── subtitles.srt
-│   │   ├── audio.mp3
-│   │   └── video.mp4
-│   │
-│   ├── garbageOut_MM_DD_YYYY
-│   │   ├── subtitles.srt
-│   │   ├── audio.mp3
-│   │   └── video.mp4
-│   │
-│   └── garbageOut_MM_DD_YYYY
-│       ├── subtitles.srt
-│       ├── audio.mp3
-│       └── video.mp4
-│  
-└── config
-    ├── dicts.py
-    └── structure.py
+├── utilities
+│   ├── x
+│   ├── y
+│   └── z
+│ 
+├── __init__.py
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── main.py
+├── README.md
+└── requirments.txt
+
 ```
 
 #### main.py
