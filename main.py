@@ -12,7 +12,7 @@ from source.db import DB
 from source.subtitler import Subtitler
 from tqdm.contrib.logging import logging_redirect_tqdm
 from tqdm import tqdm
-from utils.logger import setup_logger
+from utilities.logger import setup_logger
 
 
 def update_db(logger, db: DB):
@@ -139,8 +139,6 @@ def generate_subtitles(logger, db: DB):
 def compose_video(logger, db:DB, num_threads=16):
     """
     Compose video from Posts in the DB.
-    """
-    """
     Compose video from Posts in the DB using multiple threads.
     """
     start = time.time()
@@ -186,43 +184,7 @@ def compose_video(logger, db:DB, num_threads=16):
     end = time.time()
     bar.close()
     logger.info(f"Composed video for {successes} Posts ({failed_number} failed). Finished in {end - start} seconds ({(end - start) / successes} seconds per Post)")
-
-def upload_to_youtube(logger, db: DB):
-    """
-    Upload videos to YouTube.
-    """
-    pass
-
-    # This is broken right now. :(
-
-    # all_posts = db.get_all_posts()
-    # if args.quick:
-    #     all_posts = all_posts[:args.quick_limit]
-
-    # for post in all_posts:
-    #     if post.uploaded_youtube:
-    #         logger.debug(f"Skipping YouTube upload for post {post.short_hash} because it is already uploaded")
-    #         continue
-    #     parts_folder = os.path.join(VIDEO_DIR, f"{post.hash}_parts")
-    #     parts_filenames = os.listdir(parts_folder)
-    #     for num, file in enumerate(parts_filenames):
-    #         youtube_title = f"{post.title} (Part {num+1}/{len(parts_filenames)})"
-    #         youtube_title = shorten_string(youtube_title, max_length=110)
-    #         metadata = {
-    #             'title': youtube_title,
-    #             'description': f"Posted by {post.author} in /r/{post.subreddit} #shorts",
-    #             'tags': ['shorts']
-    #         }
-    #         uploader = YouTubeUploader(os.path.join(parts_folder, file), metadata_dict=metadata, loglevel = logging.DEBUG)
-    #         try:
-    #             was_uploaded, id = uploader.upload()
-    #             assert was_uploaded
-    #             post.uploaded_youtube = True
-    #             db.update_post(post)
-    #             logger.debug(f'Uploaded to YouTube at id {id} -- {post.short_hash}')
-    #         except Exception as exc:
-    #             logger.error(f'Failed to upload {post.short_hash} to YouTube: {exc}')
-        
+       
 
 if __name__ == '__main__':
     # get commandline arguments
